@@ -6,8 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 div.a {
-  text-align: center;
+	text-align: center;
 }
+
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	background-color: black;
@@ -81,9 +82,9 @@ a {
 
 
 		<div class="container">
-		<div class="a">
-			<h1>Register</h1>
-			<p>Please fill in this form to create an account.</p>
+			<div class="a">
+				<h1>Register</h1>
+				<p>Please fill in this form to create an account.</p>
 			</div>
 			<hr>
 
@@ -95,18 +96,24 @@ a {
 				placeholder="Enter Email" name="email" id="email" required>
 
 			<label for="password"><b>Password</b></label> <input type="password"
-				placeholder="Enter Password" name="password" id="password" required> <label
-				for="phonenumber"><b>Phone Number</b></label> <input type="text"
-				placeholder="Enter Phone Number" name="phonenumber" id="phonenumber"
-				required>
+				placeholder="Enter Password" name="password" id="password" required>
+			<label for="phonenumber"><b>Phone Number</b></label> <input
+				type="text" placeholder="Enter Phone Number" name="phonenumber"
+				id="phonenumber" required>
 			<hr>
-		
-			<button type="submit" class="registerbtn">Register</button>
+
+			<button onclick="myFunction()" type="submit" class="registerbtn">Register</button>
 		</div>
+		<script>
+			function myFunction() {
+				alert("Registered!");
+			}
+		</script>
 
 		<div class="container signin">
 			<p>
-				Already have an account? <a href="http://localhost:8080/EcommerceWebsite/Login.jsp">Sign in</a>.
+				Already have an account? <a
+					href="http://localhost:8080/EcommerceWebsite/Login.jsp">Sign in</a>.
 			</p>
 		</div>
 
