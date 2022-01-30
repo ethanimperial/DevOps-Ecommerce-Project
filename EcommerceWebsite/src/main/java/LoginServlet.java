@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
@@ -44,24 +45,32 @@ public class LoginServlet extends HttpServlet {
 		doGet(request, response);
 		PrintWriter out = response.getWriter();
 		
+		
+		/*
+		 * try { Class.forName("com.mysql.jdbc.Driver"); Connection con =
+		 * DriverManager.getConnection( "jdbc:mysql://localhost:3306/ecommerceproject",
+		 * "root", "password");
+		 * 
+		 * Statement stm = con.createStatement(); ResultSet rs =
+		 * stm.executeQuery("select * from userdetails where username='"
+		 * +username+"' and password ='"+password+"'" ); if(rs.next()) {
+		 * response.sendRedirect("ProductDetailsServlet/dashboard"); }else {
+		 * out.println("Wrong username or password..."); }
+		 * 
+		 * }catch(Exception e) { System.out.println(e.getMessage()); }
+		 */
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		try {
-			 Class.forName("com.mysql.jdbc.Driver");
-			 Connection con = DriverManager.getConnection(
-			 "jdbc:mysql://localhost:3306/ecommerceproject", "root", "password");
-			 
-			 Statement stm = con.createStatement();
-			 ResultSet rs = stm.executeQuery("select * from userdetails where username='"+username+"' and password ='"+password+"'" );
-			 if(rs.next()) {
-				 response.sendRedirect("ProductDetailsServlet/dashboard");
-			 }else {
-				 out.println("Wrong username or password...");
-			 }
-			 
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
+		RegisterServlet db = new RegisterServlet(ConnectionPro.getConnection());
+		User user = db.logUser(username, password);
+		if(user !=null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("logUser", user);
+			response.sendRedirect("ProductDetailsServlet/dashboard");
+		}else {
+			out.print("user not found");
 		}
 	}
 

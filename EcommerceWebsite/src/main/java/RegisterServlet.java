@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +27,10 @@ public class RegisterServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+
+	public RegisterServlet(Connection connection) {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -76,6 +81,36 @@ response.setContentType("text/html");
 		
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	public User logUser(String username, String password) {
+		User user = null;
+		try {
+			
+			 Class.forName("com.mysql.jdbc.Driver");
+			 Connection con = DriverManager.getConnection(
+			 "jdbc:mysql://localhost:3306/ecommerceproject", "root", "password");
+		
+			PreparedStatement pst = con.prepareStatement("select * from USERDETAILS where username=? and password=?");
+			
+		
+			pst.setString(1, username);
+			pst.setString(2, password);
+			
+			ResultSet rs = pst.executeQuery();
+			if(rs.next()) {
+				user = new User();
+				user.setId(rs.getInt("id"));
+				user.setName("username");
+				user.setEmail("email");
+				user.setPassword("password");
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return user;
 	}
 
 }

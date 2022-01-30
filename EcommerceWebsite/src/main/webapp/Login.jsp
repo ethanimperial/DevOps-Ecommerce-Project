@@ -103,7 +103,7 @@ span.psw {
 		<div class="card">
 			<br>
 			<div class="imgcontainer">
-				<img src="img_avatar2.png" alt="Avatar" class="avatar">
+				<img src="https://jejuhydrofarms.com/wp-content/uploads/2020/05/blank-profile-picture-973460_1280.png" alt="Avatar" class="avatar">
 			</div>
 
 			<div class="container">
