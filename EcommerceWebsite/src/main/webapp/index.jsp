@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>ECommerce Application</title>
 </head>
 <body>
 <h1>Testing</h1>
+<h2>Test</h2>
 </body>
 </html>
