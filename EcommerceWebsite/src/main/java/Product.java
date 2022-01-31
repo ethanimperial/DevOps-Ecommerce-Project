@@ -1,5 +1,13 @@
 
 public class Product {
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
@@ -35,16 +43,18 @@ public class Product {
 
 	protected String name;
 
-	public Product(String name, String image, String price, String category) {
+	public Product(String name, String image, String price, String category, int id) {
 		super();
 		this.name = name;
 		this.image = image;
 		this.price = price;
 		this.category = category;
+		this.id = id;
 	}
 
 	protected String image;
 	protected String price;
 	protected String category;
+	protected int id;
 
 }
