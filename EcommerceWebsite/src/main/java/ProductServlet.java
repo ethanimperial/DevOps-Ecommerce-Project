@@ -21,7 +21,7 @@ import java.sql.PreparedStatement;
 @WebServlet("/ProductServlet")
 public class ProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
     /**
      * @see HttpServlet#HttpServlet()
      */

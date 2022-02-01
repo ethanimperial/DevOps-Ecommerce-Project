@@ -16,8 +16,7 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.Cookie;
 
-import ec.ecommerce.connection.*;
-import ec.ecommerce.model.*;
+
 
 
 /**
@@ -205,4 +204,3 @@ public class ProductDetailsServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}}
-	
