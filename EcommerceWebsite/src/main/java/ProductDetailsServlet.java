@@ -1,4 +1,5 @@
 
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.http.Cookie;
+
+import ec.ecommerce.connection.*;
+import ec.ecommerce.model.*;
+
 
 /**
  * Servlet implementation class ProductDetailsServlet
@@ -53,6 +59,10 @@ public class ProductDetailsServlet extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	int added_cart_product = 0;
+	
+	Cookie c = null;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -194,6 +204,5 @@ public class ProductDetailsServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-	}
-
-}
+	}}
+	
