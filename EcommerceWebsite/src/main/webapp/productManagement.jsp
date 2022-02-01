@@ -94,6 +94,9 @@ h2 {
 				href="<%=request.getContextPath()%>/ProductDetailsServlet/dashboard"
 				class="nav-link">Products</a></li>
 				<li><a
+				href="<%=request.getContextPath()%>/Profile.jsp"
+				class="nav-link">Profile</a></li>
+				<li><a
 				href="<%=request.getContextPath()%>/Login.jsp"
 				class="nav-link">Logout</a></li>
 		</ul>
