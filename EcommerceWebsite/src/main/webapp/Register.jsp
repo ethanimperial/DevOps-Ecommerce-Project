@@ -113,7 +113,7 @@ a {
 		<div class="container signin">
 			<p>
 				Already have an account? <a
-					href="http://localhost:8080/EcommerceWebsite/Login.jsp">Sign in</a>.
+					href="http://localhost:8080/EcommerceWebsite/login.jsp">Sign in</a>.
 			</p>
 		</div>
 

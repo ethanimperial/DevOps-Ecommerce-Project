@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ec.ecommerce.model.*;
+
 
 
 /**
@@ -104,7 +106,7 @@ response.setContentType("text/html");
 			if(rs.next()) {
 				user = new User();
 				user.setId(rs.getInt("id"));
-				user.setName("username");
+				user.setUsername("username");
 				user.setEmail("email");
 				user.setPassword("password");
 			}
