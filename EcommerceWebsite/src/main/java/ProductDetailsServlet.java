@@ -99,7 +99,7 @@ public class ProductDetailsServlet extends HttpServlet {
 				throws SQLException, ServletException, IOException {
 			// get parameter passed in the URL
 			String name = request.getParameter("name");
-			Product existingProduct = new Product("", "", "", "", 0);
+			Product existingProduct = new Product(0,"",0.00,"","");
 			// Step 1: Establishing a Connection
 			try (Connection connection = getConnection();
 					// Step 2:Create a statement using connection object
@@ -110,11 +110,11 @@ public class ProductDetailsServlet extends HttpServlet {
 				// Step 4: Process the ResultSet object
 				while (rs.next()) {
 					name = rs.getString("name");
-					String price = rs.getString("price");
+					double price = rs.getDouble("price");
 					String category = rs.getString("category");
 					String image = rs.getString("image");
 					int id = 0; rs.getInt("id");
-					existingProduct = new Product(name, price, category, image, id);
+					existingProduct = new Product(id, name, price, category, image);
 				}
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
@@ -181,10 +181,10 @@ public class ProductDetailsServlet extends HttpServlet {
 			while (rs.next()) {
 				String name = rs.getString("name");
 				String image = rs.getString("image");
-				String price = rs.getString("price");
+				double price = rs.getDouble("price");
 				String category = rs.getString("category");
 				int id = 0; rs.getInt("id");
-				products.add(new Product(name, image, price, category, id));
+				products.add(new Product(id, name, price, image, category));
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

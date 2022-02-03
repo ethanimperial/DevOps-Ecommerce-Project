@@ -1,4 +1,4 @@
-package ec.ecommerce.model;
+
 
 public class Product {
 	
@@ -33,7 +33,7 @@ public class Product {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public Product(int id, String name, Double price, String image, String category) {
+	public Product(int id, String name, double price, String image, String category) {
 		
 		this.id = id;
 		this.name = name;

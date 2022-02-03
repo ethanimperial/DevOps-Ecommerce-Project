@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="ec.ecommerce.model.User"%>	
+	<%
+     
+     User auth = (User) request.getSession().getAttribute("auth");
+     if (auth != null) {
+         request.setAttribute("auth", auth);
+     }
+     
+     %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,31 +90,13 @@ h2 {
 
 <meta charset="ISO-8859-1">
 <title>ECommerce Application</title>
-
+<%@include file="/includes/head.jsp"%>
 </head>
 <body>
-
-	<nav class="navbar navbar-expand-md navbar-light">
-		<div>
-			<a class="navbar-brand"> Product Management Application </a>
-		</div>
-		<ul class="navbar-nav">
-			<li><a
-				href="<%=request.getContextPath()%>/ProductDetailsServlet/dashboard"
-				class="nav-link">Products</a></li>
-				<li><a
-				href="<%=request.getContextPath()%>/Profile.jsp"
-				class="nav-link">Profile</a></li>
-				<li><a
-				href="<%=request.getContextPath()%>/Login.jsp"
-				class="nav-link">Logout</a></li>
-		</ul>
-	</nav>
-
-
-
+<%@include file="/includes/navbar.jsp"%>
+<%@include file="/includes/footer.jsp"%>
 	<hr>
-	<h3 class="text-center">List of Products</h3>
+	<h3 class="text-center">Edit Products</h3>
 	<div class="container text-left">
 		<!-- Add new user button redirects to the register.jsp page -->
 		<a href="<%=request.getContextPath()%>/AddProduct.jsp" class="center">Add
@@ -133,10 +124,7 @@ h2 {
 					<p class="Lora">
 						<strong>Price:</strong> $${product.price}
 					</p>
-					<br>
-					<button class="btn btn-primary">Add to cart</button>
-					<br>
-
+				
 					<!-- For each user in the database, Edit/Delete
 buttons which invokes the edit/delete functions -->
 					<td>
